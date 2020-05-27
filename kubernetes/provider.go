@@ -258,6 +258,8 @@ func providerConfigure(d *schema.ResourceData, terraformVersion string) (interfa
 		}
 	}
 
+	log.Printf("[DEBUG] Config: %s", cfg.String())
+
 	m := kubeClientsets{
 		config:              cfg,
 		mainClientset:       nil,
