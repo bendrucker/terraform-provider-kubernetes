@@ -246,6 +246,7 @@ func providerConfigure(d *schema.ResourceData, terraformVersion string) (interfa
 		// IMPORTANT: if the supplied configuration is incomplete or invalid
 		///IMPORTANT: provider operations will fail or attempt to connect to localhost endpoints
 		cfg = &restclient.Config{}
+		log.Printf("[WARN] Using empty config")
 	}
 
 	cfg.UserAgent = fmt.Sprintf("HashiCorp/1.0 Terraform/%s", terraformVersion)
@@ -366,7 +367,7 @@ func initializeConfiguration(d *schema.ResourceData) (*restclient.Config, error)
 		return nil, nil
 	}
 
-	log.Printf("[INFO] Successfully initialized config")
+	log.Printf("[INFO] Successfully initialized config: %s", cfg.String())
 	return cfg, nil
 }
 
