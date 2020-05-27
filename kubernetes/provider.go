@@ -258,7 +258,7 @@ func providerConfigure(d *schema.ResourceData, terraformVersion string) (interfa
 		}
 	}
 
-	log.Printf("[DEBUG] Config: %s", cfg.String())
+	log.Printf("[DEBUG] CA data: %s", string(cfg.CAData))
 
 	m := kubeClientsets{
 		config:              cfg,
